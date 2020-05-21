@@ -11,8 +11,6 @@
 			<textarea placeholder="说一句话把~" v-model="textinput"></textarea>
 		</view>
 		<upload-img @uploadimg="uploadimg"></upload-img>
-<<<<<<< HEAD
-=======
 		<uni-popup ref="showpopup" :type="type">
 			<view class="popup-content">
 				<view class="popup-view">
@@ -24,33 +22,19 @@
 				</view>
 			</view>
 		</uni-popup>
->>>>>>> 65fad5a... updata v1.0
 	</view>
 </template>
 
 <script>
-<<<<<<< HEAD
-	
-	let itemLists = ['所有人可见', '仅自己可见'];
-	import uniNavBar from "../../components/uni-nav-bar/uni-nav-bar.vue"
-	import uploadImg from "../../components/upload-img/upload-img.vue"
-=======
 	let itemLists = ['所有人可见', '仅自己可见'];
 	import uniNavBar from "../../components/uni-nav-bar/uni-nav-bar.vue"
 	import uploadImg from "../../components/upload-img/upload-img.vue"
 	import uniPopup from "../../components/uni-popup/uni-popup.vue"
->>>>>>> 65fad5a... updata v1.0
 	export default {
 		data() {
 			return {
 				textchanges: "所有人可见",
 				textinput: "",
-<<<<<<< HEAD
-				imageList: []
-			}
-		},
-		methods: {
-=======
 				imageList: [],
 				type: '',
 				content: 'open',
@@ -67,7 +51,6 @@
 					this.$refs['show' + open].open()
 				})
 			},
->>>>>>> 65fad5a... updata v1.0
 			back() {
 				uni.navigateBack({
 					data: 1
@@ -90,13 +73,6 @@
 			},
 			uploadimg(arr) {
 				this.imageList = arr
-<<<<<<< HEAD
-			}
-		},
-		components: {
-			uniNavBar,
-			uploadImg
-=======
 			},
 			baocun() {
 				uni.showModal({
@@ -134,7 +110,6 @@
 			uniNavBar,
 			uploadImg,
 			uniPopup
->>>>>>> 65fad5a... updata v1.0
 		}
 	}
 </script>
@@ -176,9 +151,6 @@
 	.uni-textarea {
 		border: 1upx solid #EEEEEE;
 	}
-<<<<<<< HEAD
-	
-=======
 	.popup-content {
 		/* #ifndef APP-NVUE */
 		display: block;
@@ -194,5 +166,4 @@
 		font-size: 35upx;
 		margin-bottom: 20upx;
 	}
->>>>>>> 65fad5a... updata v1.0
 </style>

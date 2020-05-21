@@ -1,9 +1,5 @@
 <template>
 	<view>
-<<<<<<< HEAD
-		
-=======
->>>>>>> 65fad5a... updata v1.0
 		<swiper-header-box :tabBars="tabBars" :tabIndex="tabIndex" @tabtap="tabtap"></swiper-header-box>
 		<view class="uni-tab-bar">
 			<swiper class="swiper-box" :style="{height: swiperheight+'px'}" :current="tabIndex" @change="tabChange" id="tabbb">

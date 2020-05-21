@@ -174,12 +174,8 @@
 		top: 0;
 		background-color: #333333;
 		color: #FFFFFF;
-<<<<<<< HEAD
-		font-size: 30upx;
-=======
 		font-size: 20upx;
 		padding: 5upx 8upx;
 		border-radius: 5px;
->>>>>>> 65fad5a... updata v1.0
 	}
 </style>

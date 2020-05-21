@@ -1,8 +1,5 @@
 <template>
 	<view>
-<<<<<<< HEAD
-		
-=======
 		<news-nav-tab :tabBars="tabBars" :tabIndex="tabIndex" @changeTab="changeTab"></news-nav-tab>
 		<view class="uni-tab-bar">
 			<swiper class="swiper-box" :style="{height: swiperheight+'px'}" :current="tabIndex" @change="tabChange" id="tabbb">
@@ -38,16 +35,10 @@
 				</swiper-item>
 			</swiper>
 		</view>
->>>>>>> 65fad5a... updata v1.0
 	</view>
 </template>
 
 <script>
-<<<<<<< HEAD
-	export default {
-		data() {
-			return {
-=======
 	import uniNavBar from "../../components/uni-nav-bar/uni-nav-bar.vue"
 	import comonList from "../../components/comon-list/comon-list.vue"
 	import newsNavTab from "../../components/news-nav-tab/news-nav-tab.vue"
@@ -155,14 +146,9 @@
 						}
 					]
 				},
->>>>>>> 65fad5a... updata v1.0
-				
 			}
 		},
 		methods: {
-<<<<<<< HEAD
-			
-=======
 			changeTab(index) {
 				this.tabIndex = index
 			},
@@ -200,15 +186,11 @@
 			comonList,
 			newsNavTab,
 			loadMore
->>>>>>> 65fad5a... updata v1.0
 		}
 	}
 </script>
 
 <style>
-<<<<<<< HEAD
-
-=======
 	.search-input{
 		padding: 20upx;
 	}
@@ -219,5 +201,4 @@
 	.topic-search{
 		text-align: center;
 	}
->>>>>>> 65fad5a... updata v1.0
 </style>

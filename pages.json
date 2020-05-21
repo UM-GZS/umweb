@@ -37,9 +37,6 @@
 			}
 		}, {
 			"path": "pages/news/news",
-<<<<<<< HEAD
-			"style": {}
-=======
 			"style": {
 				"app-plus":{
 					"titleNView":false,
@@ -47,7 +44,6 @@
 					"bounce":"none"
 				}
 			}
->>>>>>> 65fad5a... updata v1.0
 		}, {
 			"path": "pages/paper/paper",
 			"style": {}

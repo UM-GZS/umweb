@@ -84,5 +84,6 @@
 		width: 70upx;
 		border-radius: 20upx;
 		position: absolute;
+		bottom: 0px;
 	}
 </style>
