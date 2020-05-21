@@ -15,7 +15,7 @@
 							<no-thing></no-thing>
 						</template>
 					</scroll-view>
-				</swiper-item>
+				</swiper-item> 
 			</swiper>
 		</view>
 
