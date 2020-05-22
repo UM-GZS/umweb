@@ -12,6 +12,7 @@
 						<!-- 上拉加载 -->
 						<load-more :loadtext="guanzhus.loadtext"></load-more>
 					</scroll-view>
+					
 				</swiper-item>
 				<!-- 话题 -->
 				<swiper-item>
@@ -21,16 +22,22 @@
 							<input class="uni-input" placeholder-class="topic-search" placeholder="搜索内容"/>
 						</view>
 						<!-- 轮播图 -->
-						<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
-							<swiper-item>
-								<view class="swiper-item"></view>
-							</swiper-item>
-							<swiper-item>
-								<view class="swiper-item"></view>
-							</swiper-item>
+						<swiper class="topic-swiper" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
+							<block v-for="(item,index) in topic.swiper" :key="index">
+								<swiper-item>
+									<image :src="item.src" mode="widthFix" lazy-load></image>
+								</swiper-item>
+							</block>
 						</swiper>
 						<!-- 热门分类 -->
+						<topic-nav :nav="topic.nav"></topic-nav>
 						<!-- 最新更新 -->
+						<view class="topic-new">
+							<view>最新更新</view>
+							<block v-for="(item,index) in topic.list" :key="index">
+								<topic-list :item="item" :index="index"></topic-list>
+							</block>
+						</view>
 					</scroll-view>
 				</swiper-item>
 			</swiper>
@@ -42,7 +49,9 @@
 	import uniNavBar from "../../components/uni-nav-bar/uni-nav-bar.vue"
 	import comonList from "../../components/comon-list/comon-list.vue"
 	import newsNavTab from "../../components/news-nav-tab/news-nav-tab.vue"
-	import loadMore from "../../components/load-more/load-more.vue";
+	import loadMore from "../../components/load-more/load-more.vue"
+	import topicNav from "../../components/topic-nav/topic-nav.vue"
+	import topicList from "../../components/topic-list/topic-list.vue"
 	export default {
 		onReady() {
 			let that = this;
@@ -61,7 +70,7 @@
 		data() {
 			return {
 				swiperheight: 500,
-				tabIndex: 1,
+				tabIndex: 0,
 				tabBars: [{
 						name: "关注",
 						id: "guanzhu"
@@ -146,6 +155,51 @@
 						}
 					]
 				},
+				topic: {
+					swiper:[
+						{src: "../../static/image/index01.jpg"},
+						{src: "../../static/image/index01.jpg"},
+						{src: "../../static/image/index01.jpg"}
+					],
+					nav:[
+						{name: "最新"},
+						{name: "游戏"},
+						{name: "打卡"},
+						{name: "情感"},
+						{name: "故事"},
+						{name: "喜爱"}
+					],
+					list:[
+						{
+							titlepic: "../../static/image/user.jpg",
+							title: "话题名称",
+							desc: "我是话题描述",
+							totalnum: 50,
+							newnum: 10
+						},
+						{
+							titlepic: "../../static/image/user.jpg",
+							title: "话题名称",
+							desc: "我是话题描述",
+							totalnum: 50,
+							newnum: 10
+						},
+						{
+							titlepic: "../../static/image/user.jpg",
+							title: "话题名称",
+							desc: "我是话题描述",
+							totalnum: 50,
+							newnum: 10
+						},
+						{
+							titlepic: "../../static/image/user.jpg",
+							title: "话题名称",
+							desc: "我是话题描述",
+							totalnum: 50,
+							newnum: 10
+						}
+					]
+				}
 			}
 		},
 		methods: {
@@ -185,7 +239,9 @@
 			uniNavBar,
 			comonList,
 			newsNavTab,
-			loadMore
+			loadMore,
+			topicNav,
+			topicList
 		}
 	}
 </script>
@@ -201,4 +257,18 @@
 	.topic-search{
 		text-align: center;
 	}
+	.topic-swiper{
+		padding: 0upx 20upx 20upx 20upx;
+	} 
+	.topic-swiper image{
+		width: 100%;
+	}
+	.topic-new{
+		padding: 20upx;
+	}
+	.topic-new>view:first-child{
+		padding-bottom: 5upx;
+		font-size: 30upx;
+	}
+	
 </style>

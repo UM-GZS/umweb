@@ -23,10 +23,10 @@
 </template> 
 
 <script>
-	import indexList from "../../components/index-list/index-list.vue";
+	import indexList from "../../components/index-list/index-list.vue"
 	import swiperHeaderBox from "../../components/swiper-header-box/swiper-header-box.vue"
-	import loadMore from "../../components/load-more/load-more.vue";
-	import noThing from "../../components/no-thing/no-thing.vue";
+	import loadMore from "../../components/load-more/load-more.vue"
+	import noThing from "../../components/no-thing/no-thing.vue"
 	export default {
 		data() {
 			return {

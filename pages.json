@@ -96,6 +96,31 @@
 				}
 			}
         }
+        ,{
+            "path" : "pages/topicNav/topicNav",
+            "style" : {
+				"navigationBarTitleText": "话题分类",
+				"app-plus":{
+					"bounce": "none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/topicDetail/topicDetail",
+            "style" : {
+				"app-plus":{
+					"scrollIndicator": "none",
+					"titleNView":{
+						"type": "transparent",
+						"buttons":[
+							{
+								"type": "menu"
+							}
+						]
+					}
+				}
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
