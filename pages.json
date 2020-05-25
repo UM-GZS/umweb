@@ -38,15 +38,39 @@
 		}, {
 			"path": "pages/news/news",
 			"style": {
-				"app-plus":{
-					"titleNView":false,
+				"app-plus": {
+					"titleNView": false,
 					"scrollIndicator": "none",
-					"bounce":"none"
+					"bounce": "none"
 				}
 			}
 		}, {
 			"path": "pages/paper/paper",
-			"style": {}
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "小纸条",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+								"color": "#000000",
+								"colorPressed": "#BBBBBB",
+								"float": "left",
+								"fontSize": "22px",
+								"fontSrc": "/static/font/ico.ttf",
+								"text": "\ue674"
+							},
+							{
+								"color": "#000000",
+								"colorPressed": "#BBBBBB",
+								"float": "right",
+								"fontSize": "22px",
+								"fontSrc": "/static/font/ico.ttf",
+								"text": "\ue60b"
+							}
+						]
+					}
+				}
+			}
 		}, {
 			"path": "pages/home/home",
 			"style": {}
@@ -85,43 +109,82 @@
 							"text": "取消"
 						}]
 					}
-				} 
+				}
 			}
-		}
-	    ,{
-            "path" : "pages/public/public",
-            "style" : {
+		}, {
+			"path": "pages/public/public",
+			"style": {
 				"app-plus": {
 					"titleNView": false
 				}
 			}
-        }
-        ,{
-            "path" : "pages/topicNav/topicNav",
-            "style" : {
+		}, {
+			"path": "pages/topicNav/topicNav",
+			"style": {
 				"navigationBarTitleText": "话题分类",
-				"app-plus":{
+				"app-plus": {
 					"bounce": "none"
 				}
 			}
-        }
-        ,{
-            "path" : "pages/topicDetail/topicDetail",
-            "style" : {
-				"app-plus":{
+		}, {
+			"path": "pages/topicDetail/topicDetail",
+			"style": {
+				"enablePullDownRefresh": true,
+				"app-plus": {
 					"scrollIndicator": "none",
-					"titleNView":{
+					"titleNView": {
 						"type": "transparent",
-						"buttons":[
-							{
-								"type": "menu"
-							}
-						]
+						"buttons": [{
+							"type": "menu"
+						}]
 					}
 				}
 			}
-        }
-    ],
+		}, {
+			"path": "pages/userList/userList",
+			"style": {
+				"app-plus": {
+					"animationType": "slide-in-left",
+					"scrollIndicator": "none",
+					"bounce": "none",
+					"titleNView": {
+						"autoBackButton": false,
+						"searchInput": {
+							"align": "left",
+							"backgroundColor": "#F7F7F7",
+							"borderRadius": "4px",
+							"placeholder": "搜索糗事",
+							"placeholderColor": "#CCCCCC"
+						},
+						"buttons": [{
+							"color": "#000000",
+							"colorPressed": "#BBBBBB",
+							"float": "right",
+							"fontSize": "16px",
+							"text": "取消"
+						}]
+					}
+				}
+			}
+		}, {
+			"path": "pages/userChat/userChat",
+			"style": {
+				"navigationBarTitleText":"聊天页",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"color": "#000000",
+							"colorPressed": "#BBBBBB",
+							"float": "right",
+							"fontSize": "22px",
+							"fontSrc": "/static/font/ico.ttf",
+							"text": "\ue60b"
+						}]
+					}
+				}
+			}
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "糗事百科",

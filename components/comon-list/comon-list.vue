@@ -6,7 +6,7 @@
 		<view class="common-list-r">
 			<view class="u-f-ac u-f-jcsb">
 				<view class="u-f-ac">{{item.username}}
-					<view class="tag-sex" :class="[item.sex == 0 ? 'sexB' : 'sexG']">{{item.age}}</view>
+					<tag-sex-age :sex="item.sex" :age="item.age"></tag-sex-age>
 				</view>
 				<view v-show="!isguanzhu" @tap="guanzhu">关注</view>
 			</view>
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+	import tagSexAge from '../tag-sex-age/tag-sex-age.vue'
 	export default {
 		props: {
 			item: Object,
@@ -58,6 +59,9 @@
 					icon: 'success'
 				})
 			}
+		},
+		components: {
+			tagSexAge
 		}
 	}
 </script>
@@ -95,22 +99,7 @@
 		font-size: 26upx;
 	}
 
-	.tag-sex {
-		color: #FFFFFF;
-		font-size: 23upx;
-		padding: 5upx 10upx;
-		line-height: 25upx;
-		margin-left: 10upx;
-		border-radius: 20upx;
-	}
-
-	.sexB {
-		background: #007AFF;
-	}
-
-	.sexG {
-		background: #FF9999;
-	}
+	
 
 	.common-list-r>view:nth-child(2) {
 		font-size: 32upx;
