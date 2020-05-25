@@ -1,5 +1,5 @@
 <template>
-	<view class="paper-list u-f-ac">
+	<view class="paper-list u-f-ac" @tap="goDatail">
 		<image :src="item.userpic" mode="widthFix" lazy-load></image>
 		<view>
 			<view class="u-f-ac u-f-jcsb">{{item.username}} <view>{{item.time}}</view></view>
@@ -23,6 +23,13 @@
 			return {
 				
 			};
+		},
+		methods: {
+			goDatail() {
+				uni.navigateTo({
+					url: '../../pages/userChat/userChat',
+				})
+			}
 		},
 		components: {
 			uniBadge

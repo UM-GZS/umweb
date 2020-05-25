@@ -1,13 +1,6 @@
 <template>
 	<view class="paper-body">
-		<view class="paper-left-popup">
-			<view>
-				<view class=""></view>加好友
-			</view>
-			<view>
-				<view></view>清理缓存
-			</view>
-		</view>
+		<paper-popup-nav :navShow="navShow" @hidepopup="hidepopup" @addf="addf" @clear="clear"></paper-popup-nav>
 		<block v-for="(item,index) in list" :key="index">
 			<paper-list :item="item" :index="index"></paper-list>
 		</block>
@@ -18,9 +11,11 @@
 <script>
 	import paperList from '../../components/paper-list/paper-list.vue'
 	import loadMore from "../../components/load-more/load-more.vue"
+	import paperPopupNav from "../../components/paper-popup-nav/paper-popup-nav.vue"
 	export default {
 		data() {
 			return {
+				navShow: false,
 				loadtext: "上拉加载更多",
 				list: [{
 						userpic: "../../static/image/user.jpg",
@@ -87,6 +82,19 @@
 		onPullDownRefresh() {
 			this.PullRefresh();
 		},
+		onNavigationBarButtonTap(e) {
+			switch (e.index) {
+				case 0:
+				uni.navigateTo({
+					url: '../userList/userList'
+				});
+				this.hidepopup();
+				break;
+				case 1:
+				this.showpopup();
+				break;
+			}
+		},
 		methods: {
 			PullRefresh() {
 				setTimeout(() => {
@@ -135,11 +143,24 @@
 				this.list.push(obj);
 				this.loadtext = "上拉加载更多";
 			}, 2000);
+		},
+		addf() {
+			this.hidepopup();
+		},
+		clear() {
+			this.hidepopup();
+		},
+		hidepopup() {
+			this.navShow = false
+		},
+		showpopup() {
+			this.navShow = true
 		}
 	},
 	components: {
 		paperList,
-		loadMore
+		loadMore,
+		paperPopupNav
 	}
 	}
 </script>
@@ -148,4 +169,5 @@
 	.paper-body {
 		padding: 0upx 20upx;
 	}
+	
 </style>
