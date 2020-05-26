@@ -89,6 +89,7 @@
 		}, {
 			"path": "pages/search/search",
 			"style": {
+				"enablePullDownRefresh": true,
 				"app-plus": {
 					"scrollIndicator": "none",
 					"bounce": "none",
@@ -184,7 +185,24 @@
 				}
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/detail/detail",
+            "style" : {
+				"navigationBarTitleText":"详情页",
+				"app-plus": {
+					"scrollIndicator":"none",
+					"bounce":"none",
+					"titleNView": {
+						"buttons": [
+							{
+								"type":"menu"
+							}
+						]
+					}
+				}
+			}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "糗事百科",
