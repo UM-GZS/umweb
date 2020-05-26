@@ -4,16 +4,21 @@
 			<image :src="item.userpic" mode="widthFix" lazy-load></image>
 		</view>
 		<view class="common-list-r">
-			<view class="u-f-ac u-f-jcsb">
-				<view class="u-f-ac">{{item.username}}
-					<tag-sex-age :sex="item.sex" :age="item.age"></tag-sex-age>
+			<view>
+				<view class="u-f-ac u-f-jcsb">
+					<view class="u-f-ac">{{item.username}}
+						<tag-sex-age :sex="item.sex" :age="item.age"></tag-sex-age>
+					</view>
+					<view v-show="!isguanzhu" @tap="guanzhu">关注</view>
 				</view>
-				<view v-show="!isguanzhu" @tap="guanzhu">关注</view>
+				<view class="common-list-r-time">26天前</view>
 			</view>
 			<view>{{item.title}}</view>
-			<view class="u-f-ajc">
+			<view class="u-f-ajc" style="flex-direction: column;">
 				<!-- 图片 -->
-				<image v-if="item.titlepic" :src="item.titlepic" mode="widthFix" lazy-load></image>
+				<block v-for="(pic,index) in item.morepic" :key="index">
+					<image :src="pic" mode="widthFix" lazy-load @tap="imgdetail(index)" style="margin-bottom: 10upx;"></image>
+				</block>
 				<!-- 视频 -->
 				<template v-if="item.video">
 					<view class="common-list-play icon iconfont icon-bofang"></view>
@@ -43,12 +48,11 @@
 	import tagSexAge from '../tag-sex-age/tag-sex-age.vue'
 	export default {
 		props: {
-			item: Object,
-			index: Number
+			item: Object
 		},
 		data() {
 			return {
-					isguanzhu: this.item.isguanzhu
+				isguanzhu: this.item.isguanzhu
 			};
 		},
 		methods: {
@@ -57,6 +61,12 @@
 				uni.showToast({
 					title: '关注成功',
 					icon: 'success'
+				})
+			},
+			imgdetail(index) {
+				uni.previewImage({
+					current: index,
+					urls: this.item.morepic,
 				})
 			}
 		},
@@ -68,4 +78,29 @@
 
 <style scoped>
 	@import "../../common/commonList.css";
+
+	.common-list-r {
+		border-bottom: 0;
+	}
+
+	.common-list {
+		border-bottom: 1upx solid #EEEEEE;
+	}
+
+	.common-list-r-time {
+		padding: 15upx 0;
+		color: #CCCCCC!important;
+		font-size: 25upx;
+		background: #FFFFFF!important;
+	}
+	.common-list-r>view:nth-child(1)>view:nth-child(1)>view:first-child {
+		color: #999999;
+		font-size: 32upx;
+	}
+	
+	.common-list-r>view:nth-child(1)>view:nth-child(1)>view:last-child {
+		background: #EEEEEE;
+		padding: 0 10upx;
+		font-size: 26upx;
+	}
 </style>

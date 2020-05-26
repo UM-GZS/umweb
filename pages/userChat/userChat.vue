@@ -36,7 +36,7 @@
 				try {
 					const res = uni.getSystemInfoSync();
 					this.style.contentH = res.windowHeight - uni.upx2px(120);
-				}catch (e) {
+				} catch (e) {
 					console.log(e)
 				}
 			},
@@ -44,14 +44,15 @@
 				let q = uni.createSelectorQuery();
 				q.select('#scrollView').boundingClientRect();
 				q.selectAll('.chat-body').boundingClientRect();
-				q.exec((res)=>{
-					res[1].forEach((ret)=>{
+				q.exec((res) => {
+					res[1].forEach((ret) => {
 						this.style.itemH += ret.height
 					})
+					if (this.style.itemH > this.style.contentH) {
+						this.scrollTop = this.style.itemH
+					}
 				})
-				if(this.style.itemH > this.style.contentH) {
-					this.scrollTop = this.style.itemH
-				}
+
 			},
 			submit(data) {
 				let now = new Date().getTime();
@@ -61,7 +62,7 @@
 					type: "text",
 					data: data,
 					time: now,
-					getTime: parsetTime.parsetime(now),
+					getTime: parsetTime.getChatTime(now,this.list[this.list.length-1].time)
 				}
 				this.list.push(obj);
 				this.pageToBottom();
@@ -114,5 +115,5 @@
 </script>
 
 <style>
-	
+
 </style>

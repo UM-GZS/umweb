@@ -1,6 +1,6 @@
 <template>
 	<view class="chat-body">
-		<view class="user-chat-time u-f-ajc">{{item.getTime}}</view>
+		<view class="user-chat-time u-f-ajc" v-if="item.getTime">{{item.getTime}}</view>
 		<view class="user-chat-list u-f" :class="{'user-chat-me':item.isme}">
 			<image v-if="!item.isme" :src="item.userpic" mode="widthFix" lazy-load></image>
 			<view class="user-chat-list-body">

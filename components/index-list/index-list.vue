@@ -46,7 +46,7 @@
 	export default {
 		props: {
 			item: Object,
-			index:Number
+			index: Number
 		},
 		data() {
 			return {
@@ -108,7 +108,9 @@
 			}
 		},
 		godetail() {
-			console.log("进入详情页")
+			uni.navigateTo({
+				url: '../../pages/detail/detail?detailId='+JSON.stringify(this.item),
+			})
 		}
 		}
 	}
