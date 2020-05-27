@@ -43,9 +43,9 @@
 					todaynum: 0
 				},
 				list: [
-					{icon: "tixing",name: "浏览历史"},
-					{icon: "tixing",name: "审核认证"},
-					{icon: "tixing",name: "设置中心"}
+					{icon: "tixing",name: "浏览历史",clickType: "",url: ""},
+					{icon: "tixing",name: "审核认证",clickType: "",url: ""},
+					{icon: "tixing",name: "设置中心",clickType: "",url: ""}
 				]
 			}
 		},

@@ -1,6 +1,6 @@
 <template>
-	<view class="home-nav-list-item u-f-ac u-f-jcsb" hover-class="home-nav-hover">
-		<view class="u-f-ac"><view class="icon iconfont" :class="['icon-'+item.icon]"></view>{{item.name}}</view>
+	<view class="home-nav-list-item u-f-ac u-f-jcsb" hover-class="home-nav-hover"@tap="goevent">
+		<view class="u-f-ac"><view v-if="item.icon" class="icon iconfont" :class="['icon-'+item.icon]"></view>{{item.name}}</view>
 		<view class="icon iconfont icon-fenxiang"></view>
 	</view>
 </template>
@@ -15,6 +15,18 @@
 			return {
 				
 			};
+		},
+		methods: {
+			goevent() {
+				switch (this.item.clickType) {
+					case "navigateTo":
+					if(this.item.url){uni.navigateTo({url: this.item.url});}
+					break;
+					case "switchTab":
+					if(this.item.url){uni.switchTab({url: this.item.url});}
+					break;
+				}
+			}
 		}
 	}
 </script>
