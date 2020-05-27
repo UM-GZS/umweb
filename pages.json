@@ -215,6 +215,42 @@
 				}
 			}
         }
+        ,{
+            "path" : "pages/userSet/userSet",
+            "style" : {
+				"navigationBarTitleText":"设置"
+			}
+        }
+        ,{
+            "path" : "pages/restpassword/restpassword",
+            "style" : {
+				"navigationBarTitleText":"修改密码",
+				"app-plus": {
+					"scrollIndicator":"none",
+					"bounce":"none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/restemail/restemail",
+            "style" : {
+            	"navigationBarTitleText":"修改邮箱",
+            	"app-plus": {
+            		"scrollIndicator":"none",
+            		"bounce":"none"
+            	}
+            }
+        }
+        ,{
+            "path" : "pages/restinfo/restinfo",
+            "style" : {
+            	"navigationBarTitleText":"修改资料",
+            	"app-plus": {
+            		"scrollIndicator":"none",
+            		"bounce":"none"
+            	}
+            }
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
