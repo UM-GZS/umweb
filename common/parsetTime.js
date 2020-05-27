@@ -2,7 +2,7 @@ const parseTime = {
 	getChatTime(newT, oldT) {
 		newT = newT.toString().length < 13 ? newT * 1000 : newT
 		oldT = oldT.toString().length < 13 ? oldT * 1000 : oldT
-		if ((newT - oldT) / 1000 > 3) {
+		if ((newT - oldT) / 1000 > 300) {
 			return this.parsetime(newT)
 		} 
 	},
@@ -16,7 +16,7 @@ const parseTime = {
 		var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
 		var D = date.getDate() + ' ';
 		var h = (date.getHours() < 10 ? '0' + (date.getHours()) : date.getHours()) + ':';
-		var m = date.getMinutes();
+		var m = (date.getMinutes() <10 ? '0' +(date.getMinutes()) : date.getMinutes());
 		var s = date.getSeconds();
 		if (nowTime - date < 86400000) {
 			if (date.getDay() !== nowDate.getDay()) {
