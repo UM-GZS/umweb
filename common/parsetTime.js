@@ -2,7 +2,7 @@ const parseTime = {
 	getChatTime(newT, oldT) {
 		newT = newT.toString().length < 13 ? newT * 1000 : newT
 		oldT = oldT.toString().length < 13 ? oldT * 1000 : oldT
-		if ((newT - oldT) / 1000 > 3) {
+		if ((newT - oldT) / 1000 > 300) {
 			return this.parsetime(newT)
 		} 
 	},
