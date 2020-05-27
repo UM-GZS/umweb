@@ -73,6 +73,7 @@
 			},
 			uploadimg(arr) {
 				this.imageList = arr
+				console.log(this.imageList)
 			},
 			baocun() {
 				uni.showModal({
