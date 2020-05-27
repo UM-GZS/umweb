@@ -51,7 +51,9 @@
 		},
 		onNavigationBarButtonTap(e) {
 			if(e.index == 0) {
-				console.log(e)
+				uni.navigateTo({
+					url: '../userSet/userSet'
+				})
 			}
 		},
 		methods: {
