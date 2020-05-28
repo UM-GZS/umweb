@@ -46,16 +46,18 @@
 		</view>
 		<view class="user-set-info-list u-f-ac u-f-jcsb">
 			<view>家乡</view>
-			<view class="u-f-ac">
-				<view>中国广东</view>
+			<view class="u-f-ac" @tap="showCity">
+				<view>{{pickerText}}</view>
 				<view class="icon iconfont icon-fabiaoanli-"></view>
 			</view>
 		</view>
 		<button class="suerset-button" type="primary" @tap="submit">完成</button>
+		<mpvue-city-picker ref="mpvueCityPicker" :pickerValueDefault="pickerValueDefault" @onConfirm="onConfirm"></mpvue-city-picker>
 	</view>
 </template>
 
 <script>
+	import mpvueCityPicker from '../../components/mpvue-citypicker/mpvueCityPicker.vue'
 	let sex = ['不限', '男', '女'];
 	let qg = ['秘密', '单身', '恋爱', '已婚'];
 	let work = ['服务员', '教师', '学生', '个体户'];
@@ -67,8 +69,24 @@
 				age: "1998-01-10",
 				sex: "不限",
 				qg: "单身",
-				work: "IT"
+				work: "IT",
+				pickerText: "广东省",
+				pickerValueDefault: [0, 0, 0]
 			}
+		},
+		onBackPress() {
+			if (this.$refs.mpvueCityPicker.showPicker) {
+				this.$refs.mpvueCityPicker.pickerCancel();
+				return true;
+			}
+		},
+		onUnload() {
+			if (this.$refs.mpvueCityPicker.showPicker) {
+				this.$refs.mpvueCityPicker.pickerCancel();
+			}
+		},
+		components: {
+			mpvueCityPicker
 		},
 		computed: {
 			startDate() {
@@ -79,6 +97,12 @@
 			}
 		},
 		methods: {
+			onConfirm(e) {
+				this.pickerText = e.label;
+			},
+			showCity() {
+				this.$refs.mpvueCityPicker.show()
+			},
 			bindDateChange(e) {
 				this.age = e.target.value
 			},
@@ -164,7 +188,7 @@
 		color: #9B9B9B;
 		margin-left: 20upx;
 	}
-	
+
 	.user-set-info-list>view:last-child>image {
 		width: 80upx;
 		height: 80upx;
