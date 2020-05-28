@@ -275,10 +275,20 @@
         ,{
             "path" : "pages/login/login",
             "style" : {
+				"navigationBarBackgroundColor": "#FFE933",
             	"navigationBarTitleText":false,
             	"app-plus": {
             		"scrollIndicator":"none",
-            		"bounce":"none"
+            		"bounce":"none",
+					"titleNView": {
+						"autoBackButton": "false",
+						"buttons": [
+							{
+								"type":"close",
+								"float":"left"
+							}
+						]
+					}
             	}
             }
         }

@@ -41,7 +41,7 @@
 								data.push({
 									name: '微信好友',
 									id: 'weixin',
-									zicon: 'gerenzhongxin',
+									zicon: 'weixin',
 									zclass: '01',
 									sort:0
 								})
@@ -49,7 +49,7 @@
 									name: '朋友圈',
 									id: 'weixin',
 									type:'WXSenceTimeline',
-									zicon: 'gerenzhongxin',
+									zicon: 'pengyouquan',
 									zclass: '02',
 									sort:1
 								})
@@ -58,7 +58,7 @@
 								data.push({
 									name: '新浪微博',
 									id: 'sinaweibo',
-									zicon: 'gerenzhongxin',
+									zicon: 'weibo',
 									zclass: '03',
 									sort:2
 								})
@@ -67,7 +67,7 @@
 								data.push({
 									name: 'QQ好友',
 									id: 'qq',
-									zicon: 'gerenzhongxin',
+									zicon: 'qq',
 									zclass: '04',
 									sort:3
 								})
