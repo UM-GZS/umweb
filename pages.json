@@ -251,6 +251,16 @@
             	}
             }
         }
+        ,{
+            "path" : "pages/resthelp/resthelp",
+            "style" : {
+            	"navigationBarTitleText":"意见反馈",
+            	"app-plus": {
+            		"scrollIndicator":"none",
+            		"bounce":"none"
+            	}
+            }
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
