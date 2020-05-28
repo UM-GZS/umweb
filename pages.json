@@ -256,8 +256,39 @@
             "style" : {
             	"navigationBarTitleText":"意见反馈",
             	"app-plus": {
+					
             		"scrollIndicator":"none",
             		"bounce":"none"
+            	}
+            }
+        }
+        ,{
+            "path" : "pages/restabout/restabout",
+            "style" : {
+            	"navigationBarTitleText":"关于我们",
+            	"app-plus": {
+            		"scrollIndicator":"none",
+            		"bounce":"none"
+            	}
+            }
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {
+				"navigationBarBackgroundColor": "#FFE933",
+            	"navigationBarTitleText":false,
+            	"app-plus": {
+            		"scrollIndicator":"none",
+            		"bounce":"none",
+					"titleNView": {
+						"autoBackButton": "false",
+						"buttons": [
+							{
+								"type":"close",
+								"float":"left"
+							}
+						]
+					}
             	}
             }
         }

@@ -19,7 +19,7 @@
 					{icon: "",name: "小纸条",clickType: "",url: ""},
 					{icon: "",name: "清除缓存",clickType: "",url: ""},
 					{icon: "",name: "意见反馈",clickType: "navigateTo",url: "../resthelp/resthelp"},
-					{icon: "",name: "关于我们",clickType: "",url: ""}
+					{icon: "",name: "关于我们",clickType: "navigateTo",url: "../restabout/restabout"}
 				]
 			}
 		},
