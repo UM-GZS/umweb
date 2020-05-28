@@ -9,9 +9,9 @@
 			<view class="login-body">
 				<view class="login-body-title u-f-ajc">用户登录</view>
 				<view class="login-body-input">
-					<input type="text" class="uni-input common-input" placeholder="昵称/手机号/邮箱" />
+					<input type="text" class="uni-input common-input" placeholder="昵称/手机号/邮箱" v-model="username"/>
 					<view class="login-body-input-box">
-						<input type="text" password class="uni-input common-input forget-input" placeholder="请输入密码" /><strong></strong>
+						<input type="text" password class="uni-input common-input forget-input" placeholder="请输入密码" v-model="password"/><strong></strong>
 						<view class="login-body-input-box-forget u-f-ajc">忘记密码？</view>
 					</view>
 					<button class="suerset-button" :loading="loading" :class="{'suerset-button-disable': disabled}" type="primary" @tap="submit">登录</button>
@@ -25,11 +25,11 @@
 				<view class="login-body-input">
 					<view class="login-body-input-box">
 						<view class="login-body-input-box-phone u-f-ajc">+86</view>
-						<input type="text" class="uni-input common-input phone-input" placeholder="请输入手机号" />
+						<input type="text" class="uni-input common-input phone-input" placeholder="请输入手机号" v-model="phone"/>
 					</view>
 					<view class="login-body-input-box">
-						<input type="text" class="uni-input common-input forget-input" placeholder="请输入验证码" /><strong></strong>
-						<view class="login-body-input-box-forget u-f-ajc" style="background: #EEEEEE;">获取验证码</view>
+						<input type="text" class="uni-input common-input forget-input" placeholder="请输入验证码" v-model="checknum"/><strong></strong>
+						<view class="login-body-input-box-forget u-f-ajc" style="background: #EEEEEE;" @tap="getCodeNum">{{!codeNum?'获取验证码':codeNum+'s'}}</view>
 					</view>
 					<button class="suerset-button" :loading="loading" :class="{'suerset-button-disable': disabled}" type="primary" @tap="submit">登录</button>
 				</view>
@@ -51,7 +51,12 @@
 			return {
 				disabled: true,
 				loading: false,
-				codeLogin: 0//0 账号密码登录 1 手机号码登录
+				codeLogin: 0,//0 账号密码登录 1 手机号码登录
+				username: "",
+				password: "",
+				phone: "",
+				checknum: "",
+				codeNum: 0
 			}
 		},
 		onNavigationBarButtonTap(e) {
@@ -61,17 +66,80 @@
 				})
 			}
 		},
+		watch: {
+			username() {
+				this.onBtnChange();
+			},
+			password() {
+				this.onBtnChange();
+			},
+			phone() {
+				this.onBtnChange();
+			},
+			checknum() {
+				this.onBtnChange();
+			}
+		},
 		methods: {
+			checkPhone() {
+				let mPattern = /^1[3456789]\d{9}$/;
+				return mPattern.test(this.phone);
+			},
+			getCodeNum() {
+				if(this.codeNum > 0) {
+					uni.showToast({
+					title: "不能重复获取",
+					icon: "none"
+				}) 
+				return;
+				}
+				if(!this.checkPhone()) {
+					uni.showToast({
+						title: '请输入正确的手机号码',
+						icon: 'none'
+					})
+					return;
+				}
+				this.codeNum = 10;
+				let timer = setInterval(()=>{
+					this.codeNum--;
+					if(this.codeNum < 1) {
+						clearInterval(timer);
+						this.codeNum = 0;
+					}
+				},1000);
+			},
+			onBtnChange() {
+				if((this.username && this.password) || (this.phone && this.checknum)) {
+					this.disabled = false;
+					return;
+				}
+				this.disabled = true;
+			},
 			submit() {
-				console.log('open')
+				if(this.codeLogin == 0) {
+					return;
+				}
+				if(!this.checkPhone()) {
+					uni.showToast({
+						title: '请输入正确的手机号码',
+						icon: 'none'
+					});
+					return;
+				}
+				console.log('ok')
 			},
 			changeLogin(val) {
 				switch (val) {
 					case 0:
 					this.codeLogin = val;
+					this.phone = "";
+					this.checknum = "";
 					break;
 					case 1:
 					this.codeLogin = val;
+					this.username = "";
+					this.password = "";
 					break;
 				}
 			}
@@ -111,7 +179,7 @@
 		position: relative;
 	}
 	.forget-input{
-		padding-right: 150upx;
+		padding-right: 160upx;
 	}
 	.phone-input{
 		padding-left: 80upx;
@@ -128,7 +196,7 @@
 	}
 	.login-body-input-box-forget{
 		position: absolute;
-		padding: 0upx 20upx;
+		width: 150upx;
 		top: 0;
 		right: 0;
 		height: 100%;
@@ -151,6 +219,7 @@
 		height: 1upx;
 		width: 100upx;
 		content: '';
+		top: 20upx;
 	}
 	.login-bottom>view:first-child:before{
 		left: 25%;
