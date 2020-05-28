@@ -256,6 +256,27 @@
             "style" : {
             	"navigationBarTitleText":"意见反馈",
             	"app-plus": {
+					
+            		"scrollIndicator":"none",
+            		"bounce":"none"
+            	}
+            }
+        }
+        ,{
+            "path" : "pages/restabout/restabout",
+            "style" : {
+            	"navigationBarTitleText":"关于我们",
+            	"app-plus": {
+            		"scrollIndicator":"none",
+            		"bounce":"none"
+            	}
+            }
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {
+            	"navigationBarTitleText":false,
+            	"app-plus": {
             		"scrollIndicator":"none",
             		"bounce":"none"
             	}
