@@ -1,4 +1,25 @@
 const parseTime = {
+	getreg(data) {
+		let dateBegin = new Date(data.replace(/-/g,"/"));
+		let dateEnd = new Date();
+		let dateDiff = dateEnd.getTime() - dateBegin.getTime();
+		let dayDiff = Math.floor(dateDiff / (24 * 3600 * 1000));
+		let leave1 = dateDiff % (24 * 3600 * 1000);
+		let hours = Math.floor(leave1 / (3600 * 1000));
+		let leave2 = leave1 % (3600 * 1000);
+		let minutes = Math.floor(leave2 / (3600 * 1000));
+		let leave3 = leave2 % (3600 * 1000);
+		let secondes = Math.round(leave3 / 1000);
+		return dayDiff + "天" + hours + "小时";
+	},
+	getcope(data) {
+		let c = ['摩羯','水瓶','双鱼','白羊','双子','巨蟹','狮子','处女','天枰','天蝎','射手','摩羯'];
+		let date = new Date(data);
+		let month = date.getMonth()+1;
+		let day = date.getDay();
+		let starMonth = month - (day - 14 < '865778999988'.charAt(month))
+		return c[starMonth] + '座'
+	},
 	getChatTime(newT, oldT) {
 		newT = newT.toString().length < 13 ? newT * 1000 : newT
 		oldT = oldT.toString().length < 13 ? oldT * 1000 : oldT
