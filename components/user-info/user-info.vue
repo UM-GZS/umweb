@@ -5,7 +5,7 @@
 			<view>{{userInfo.username}}</view>
 			<view>总访客 {{userInfo.totalnum}} 今日 {{userInfo.todaynum}}</view>
 		</view>
-		<view class="icon iconfont icon-fenxiang"></view>
+		<view class="icon iconfont icon-fenxiang" @tap="goUser"></view>
 	</view>
 </template>
 
@@ -18,6 +18,11 @@
 			return {
 				
 			};
+		},
+		methods: {
+			goUser() {
+				this.$emit('goUser')
+			}
 		}
 	}
 </script>

@@ -28,7 +28,6 @@
 					success: (res) => {
 						console.log('login success:', res);
 						// 更新保存在 store 中的登录状态
-						this.login(provider.id);
 					},
 					fail: (err) => {
 						console.log('login fail:', err);
@@ -60,11 +59,6 @@
 									icon = 'weibo'
 									colorNum = '03'
 									break;
-								case 'xiaomi':
-									providerName = '小米登陆'
-									icon = 'xiaomi'
-									colorNum = '04'
-									break;
 							}
 							return {
 								name: providerName,
@@ -73,7 +67,6 @@
 								colorNum: colorNum
 							}
 						});
-						console.log(this.providerList)
 					},
 					fail: (error) => {
 						console.log('获取登录通道失败', error);
@@ -109,6 +102,7 @@
 	.other-login-03 {
 		background: #FC7729;
 	}
+
 	.other-login-04 {
 		background: #555555;
 	}

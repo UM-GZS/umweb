@@ -3,11 +3,11 @@
 		<template v-if="!isLogin">
 			<view class="u-f-ajc">登录账号，体验更多功能</view>
 			<other-login></other-login>
-			<view class="u-f-ajc" @tap="goLogin">账号密码登录 <view class="icon iconfont icon-fenxiang" style="margin-left: 10upx;"></view></view>
+			<view class="u-f-ajc" @tap="goLogin">账号密码登录</view>
 			
 		</template>
 		<template v-if="isLogin">
-			<user-info :userInfo="userInfo"></user-info>
+			<user-info :userInfo="userInfo" @goUser="goUser"></user-info>
 		</template>
 		<home-data :homedata="homedata"></home-data>
 		<view class="home-ad u-f-ajc">
@@ -29,7 +29,7 @@
 	export default {
 		data() {
 			return {
-				isLogin: false,
+				isLogin: true,
 				homedata: [
 					{name: "最新", num: 20},
 					{name: "动态", num: 10},
@@ -60,6 +60,11 @@
 			goLogin() {
 				uni.navigateTo({
 					url: '../login/login'
+				})
+			},
+			goUser() {
+				uni.navigateTo({
+					url: '../userSpace/userSpace'
 				})
 			}
 		},
