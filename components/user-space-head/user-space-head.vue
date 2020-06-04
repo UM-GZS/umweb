@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="user-space-head u-f-ajc">
-			<image :src="getBgImage" mode="widthFix" lazy-load @tap="changeBgImg"></image>
+			<image :src="getBgImage" mode="aspectFill" lazy-load @tap="changeBgImg"></image>
 			<view class="user-space-head-info u-f-ajc u-f-column">
 				<image :src="userInfo.changeUsImg" mode="aspectFill" lazy-load @tap="changeUserImg"></image>
 				<view class="uesr-space-margin u-f-ac">{{userInfo.username}}
@@ -75,6 +75,7 @@
 
 	.user-space-head>image {
 		width: 100%;
+		height: 100%;
 	}
 
 	.user-space-head-info {

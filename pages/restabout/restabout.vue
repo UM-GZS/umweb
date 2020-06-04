@@ -1,7 +1,7 @@
 <template>
 	<view class="body">
 		<view class="user-set-about u-f-ajc u-f-column">
-			<image src="../../static/image/logo.png" lazy-load></image>
+			<image src="../../static/image/logo.png" mode="widthFix" lazy-load></image>
 			<view>version 1.0.0</view>
 		</view>
 		<block v-for="(item,index) in list" :key="index">
