@@ -59,6 +59,11 @@
 									icon = 'weibo'
 									colorNum = '03'
 									break;
+								case 'xiaomi':
+									providerName = '小米登录'
+									icon = 'xiaomi'
+									colorNum = '04'
+									break;
 							}
 							return {
 								name: providerName,

@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<user-space-popup :navShow="navShow" @hidepopup="hidepopup" @lahei="lahei" @beizhu="beizhu"></user-space-popup>
 		<user-space-head :userInfo="userInfo"></user-space-head>
 		<view class="user-space-data">
 			<home-data :homedata="spacedata"></home-data>
@@ -9,14 +10,16 @@
 			<swiper-header-box :tabBars="tabBars" :tabIndex="tabIndex" @tabtap="tabtap" scrollItemStyle="width: 33.33%;"
 			 scrollStyle="border-bottom: 0;"></swiper-header-box>
 			<block v-for="(item,index) in tablist" :key="index">
-				<template v-if="tabIndex == 0">
-					<user-space-info :userInfo="userInfo"></user-space-info>
-				</template>
-				<template v-else-if="tabIndex == index">
-					<block v-for="(list,listindex) in item.list" :key="listindex">
-						<comon-list :item="list" :index="listindex"></comon-list>
-					</block>
-					<load-more :loadtext="item.loadtxt"></load-more>
+				<template v-if="tabIndex == index">
+					<template v-if="tabIndex == 0">
+						<user-space-info :userInfo="userInfo"></user-space-info>
+					</template>
+					<template v-else-if="tabIndex == index">
+						<block v-for="(list,listindex) in item.list" :key="listindex">
+							<comon-list :item="list" :index="listindex"></comon-list>
+						</block>
+						<load-more :loadtext="item.loadtxt"></load-more>
+					</template>
 				</template>
 			</block>
 		</view>
@@ -30,9 +33,11 @@
 	import comonList from "../../components/comon-list/comon-list.vue"
 	import loadMore from "../../components/load-more/load-more.vue"
 	import userSpaceInfo from "../../components/user-space-info/user-space-info.vue"
+	import userSpacePopup from "../../components/user-space-popup/user-space-popup.vue"
 	export default {
 		data() {
 			return {
+				navShow: false,
 				tabIndex: 0,
 				tabBars: [{
 						name: "主页",
@@ -79,7 +84,7 @@
 						loadtext: "上拉加载更多",
 						list: [{
 								userpic: "../../static/image/user.jpg",
-								username: "kolboy",
+								username: "kolman",
 								sex: 0, //0 男 1 女
 								age: 25,
 								isguanzhu: false,
@@ -228,7 +233,26 @@
 		onReachBottom() {
 			this.loadmore();
 		},
+		onNavigationBarButtonTap(e) {
+			switch (e.index) {
+				case 0:
+				this.showpopup();
+				break;
+			}
+		},
 		methods: {
+			hidepopup() {
+				this.navShow = false;
+			},
+			showpopup() {
+				this.navShow = true;
+			},
+			lahei() {
+				this.hidepopup();
+			},
+			beizhu() {
+				this.hidepopup();
+			},
 			tabtap(index) {
 				this.tabIndex = index;
 			},
@@ -264,7 +288,8 @@
 			swiperHeaderBox,
 			comonList,
 			loadMore,
-			userSpaceInfo
+			userSpaceInfo,
+			userSpacePopup
 		}
 	}
 </script>
