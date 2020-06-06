@@ -1,11 +1,11 @@
 <script>
 	export default {
 		onLaunch: function() {
-			console.log(this.config.webUrl)
+			this.lib.NetWork.On();
 		},
 		onShow: function() {
 			console.log('App Show')
-		},
+		}, 
 		onHide: function() {
 			console.log('App Hide')
 		}
